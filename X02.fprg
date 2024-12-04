@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="X02"/>
+        <attribute name="authors" value="Lenovo"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-12-04 03:50:26 PM"/>
+        <attribute name="created" value="TGVub3ZvO0lPS0FQVVJCQTE5OzIwMjItMTItMTI7MTA6MTA6MzEgQU07MjY1MA=="/>
+        <attribute name="edited" value="TGVub3ZvO0lPS0FQVVJCQTE5OzIwMjItMTItMTI7MTE6MTM6MDkgQU07NzsyNzcz"/>
+        <attribute name="edited" value="TEVOMFYwO0xBUFRPUC1WVDQ1QTU3QzsyMDI0LTEyLTA0OzAzOjUwOjI2IFBNOzE7MjgxMg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="buddy" type="String" array="True" size="4"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="i" expression="0"/>
+            <call expression="inisialisasi(buddy)"/>
+            <call expression="input(i, buddy)"/>
+            <call expression="roomBuddies(i, buddy)"/>
+        </body>
+    </function>
+    <function name="inisialisasi" type="None" variable="">
+        <parameters>
+            <parameter name="buddy" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="3" direction="inc" step="1">
+                <assign variable="buddy[i]" expression="&quot;&quot;"/>
+            </for>
+        </body>
+    </function>
+    <function name="input" type="None" variable="">
+        <parameters>
+            <parameter name="i" type="Integer" array="False"/>
+            <parameter name="buddy" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="bud" type="Boolean" array="False" size=""/>
+            <do expression="bud == true">
+                <if expression="i &lt; 4">
+                    <then>
+                        <input variable="buddy[i]"/>
+                        <if expression="buddy[i] == &quot;---&quot;">
+                            <then>
+                                <assign variable="bud" expression="false"/>
+                            </then>
+                            <else>
+                                <assign variable="bud" expression="true"/>
+                            </else>
+                        </if>
+                        <assign variable="i" expression="i + 1"/>
+                    </then>
+                    <else>
+                        <assign variable="bud" expression="false"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="roomBuddies" type="None" variable="">
+        <parameters>
+            <parameter name="i" type="Integer" array="False"/>
+            <parameter name="buddy" type="String" array="True"/>
+        </parameters>
+        <body>
+            <while expression="i &lt; 4">
+                <if expression="buddy[i] != &quot;---&quot;">
+                    <then>
+                        <output expression="buddy[i]" newline="True"/>
+                        <assign variable="i" expression="i + 1"/>
+                    </then>
+                    <else>
+                        <assign variable="i" expression="i + 3"/>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
